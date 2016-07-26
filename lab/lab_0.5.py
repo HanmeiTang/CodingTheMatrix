@@ -1,3 +1,5 @@
+# Lab: Introduction to Python—sets, lists, dictionaries, and comprehensions
+
 # Task 0.5.1: Use Python to find the number of minutes in a week.
 iminutes_in_week = 7 * 24 * 60  # 10080
 
@@ -89,4 +91,51 @@ D = {'red', 'white', 'blue'}
 dic = {k:k for k in D}
 
 # Task 0.5.25: Using the variables base=10 and digits=set(range(base)), write a dictionary comprehension that maps each integer between zero and nine hundred ninety nine to the list of three digits that represents that integer in base 10. That is, the value should be {0: [0, 0, 0], 1: [0, 0, 1], 2: [0, 0, 2], 3: [0, 0, 3],..., 10: [0, 1, 0], 11: [0, 1, 1], 12: [0, 1, 2],..., 999: [9, 9, 9]} Your expression should work for any base. For example, if you instead assign 2 to base and assign {0,1} to digits, the value should be {0: [0, 0, 0], 1: [0, 0, 1], 2: [0, 1, 0], 3: [0, 1, 1], ..., 7: [1, 1, 1]}
+base = 10
+comprehension = {x:[x // base**2 ,(x % base**2) // base, x % base] for x in range(1000)}
+
+# Task 0.5.26: Suppose d is a dictionary that maps some employee IDs (a subset of the integers from 0 to n − 1) to salaries. Suppose L is an n-element list whose i th element is the name of employee number i. Your goal is to write a comprehension whose value is a dictionary mapping employee names to salaries. You can assume that employee names are distinct. Test your comprehension with the following data: id2salary = {0:1000.0, 3:990, 1:1200.50} names = ['Larry', 'Curly','', 'Moe']
+id2salary = {0:1000.0, 3:990, 1:1200.50}
+names = ['Larry', 'Curly','', 'Moe']
+name2sal = {v:id2salary[k] if k in id2salary else 'void' for k,v in enumerate(names)}
+# {'': 'void', 'Curly': 1200.5, 'Larry': 1000.0, 'Moe': 990} # Not a good solution
+listdict2dict = {names[k]:v for (k,v) in id2salary.items() }
+# {'Curly': 1200.5, 'Larry': 1000.0, 'Moe': 990}
+
+# Task 0.5.27: Try entering the definition of twice(z). After you enter the definition, you will see the ellipsis. Just press enter. Next, try invoking the procedure on some actual arguments. Just for fun, try strings or lists. Finally, verify that the variable z is now not bound to any value by asking Python to evaluate the expression consisting of z.
+def twice(z): return 2*z
+
+# Task 0.5.28: Define a one-line procedure nextInts(L) specified as follows: 
+# • input: list L of integers 
+# • output: list of integers whose i th element is one more than the i th element of L 
+# • example: input [1, 5, 7], output [2, 6, 8].
+def nextInts(L): return [x+1 for x in L]
+
+# Task 0.5.29: Define a one-line procedure cubes(L) specified as follows:
+# • input: list L of numbers
+# • output: list of numbers whose i th element is the cube of the i th element of L
+# • example: input [1, 2, 3], output [1, 8, 27].
+def cubes(L): return [x**3 for x in L]
+
+# Task 0.5.30: Define a one-line procedure dict2list(dct,keylist) with this spec: 
+# • input: dictionary dct, list keylist consisting of the keys of dct 
+# • output: list L such that L[i] = dct[keylist[i]] for i = 0, 1, 2,..., len(keylist) − 1 
+# • example: input dct={'a':'A', 'b':'B', 'c':'C'} and keylist=['b','c','a'], output ['B', 'C', 'A']
+def dict2list(dct,keylist): return {dct[k] for k in keylist}
+
+# Task 0.5.31: Define a one-line procedure list2dict(L, keylist) specified as follows: 
+# • input: list L, list keylist of immutable items 
+# • output: dictionary that maps keylist[i] to L[i] for i = 0, 1, 2,..., len(L) − 1 
+# • example: input L=[’A’,’B’,’C’] and keylist=[’a’,’b’,’c’], output {'a':'A', 'b':'B', 'c':'C'} 
+# Hint: Use a comprehension that iterates over a zip or a range.
+def list2dict(L, keylist): return {k:v for k,v in zip(keylist,L)}
+
+# Task 0.5.32: Write a procedure all 3 digit numbers(base, digits) with the following spec: 
+# • input: a positive integer base and the set digits which should be {0, 1, 2,..., base−1}. 
+# • output: the set of all three-digit numbers where the base is base 
+# For example, 
+# >>> all_3_digit_numbers(2, {0,1}) {0, 1, 2, 3, 4, 5, 6, 7} 
+# >>> all_3_digit_numbers(3, {0,1,2}) {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26}
+# >>> all_3_digit_numbers(10, {0,1,2,3,4,5,6,7,8,9}) {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, ... 985, 986, 987, 988, 989, 990, 991, 992, 993, 994, 995, 996, 997, 998, 999}
+def all_3_digit_numbers(base, digits): return set(range(base**3))
 
