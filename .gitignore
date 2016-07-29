@@ -1,7 +1,7 @@
 # This is .gitignore file for ctm <Coding the matrix>
 /Users/hanmeiTang/repos/ctm/lab/.ipynb_checkpointsi/*
 lab/.ipynb_checkpoints/
-
+chapter_1/.ipynb_checkpoints/
 # Folder view configuration files
 Desktop.ini
 *.DS_Store
