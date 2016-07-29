@@ -1,4 +1,5 @@
-# CHapter 0: The Function (and other mathematical and computational preliminaries)
+# CHapter 0: 
+The Function (and other mathematical and computational preliminaries)
 * 0.1 Set terminology and notation
 * 0.2 Cartesian product
 * 0.3 The function
