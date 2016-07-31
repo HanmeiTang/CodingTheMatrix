@@ -26,6 +26,9 @@ def segment(pt1, pt2):
 plot(segment([3.5,3], [0.5,1]))
 
 # Quiz 2.7.2 - 2.7.5
+from image import *
+from plotting import *
+
 class Vec:
     def __init__(self, labels, function):
         self.D = labels
@@ -48,3 +51,40 @@ def add(u, v):
 
 def neg(v):
     return Vec(v.D, {d:-v.f[d] for d in v.f})
+
+# Computational Problem 2.8.7
+from itertools import combinations
+from GF2 import one
+
+def get_solution(s, L):
+    """
+    Args:
+        s (list): a vector over GF(2)
+        L (list of list): collection of possible sub-vectors over GF(2)
+    Returns:
+        solution (list of list): combination solutions collection
+    """
+    result = [[]]*len(s)
+    for i in range(len(s))[1:]:
+        combs = combinations(L, i)
+        result[i] = [comb for comb in combs if get_sum_for_multi(comb)==s]
+    result = [r[0] for r in result if r!=[]] [0]
+    return result
+    
+def get_sum_for_multi(list_set):
+    length = len(list_set[0])
+    L_sum = [0] * length
+    for pie in list_set:
+        L_sum = [x+y for x,y in zip(L_sum, pie)]
+    return L_sum
+# This is a test:
+x = get_solution([one, one, one],[[one,0,one],[0,one,0],[one,one,0],[0,0,0]])
+print(x) # ([one, 0, one], [0, one, 0])
+
+# Quiz 2.9.3
+import numpy as np
+def get_ave(L): return np.dot(L, [1/len(L)]*len(L))
+
+# Quiz 2.9.4
+def list_dot(u,v): return sum([x*y for x,y in zip(u,v)])
+
