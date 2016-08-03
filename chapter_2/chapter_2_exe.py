@@ -77,6 +77,7 @@ def get_sum_for_multi(list_set):
     for pie in list_set:
         L_sum = [x+y for x,y in zip(L_sum, pie)]
     return L_sum
+
 # This is a test:
 x = get_solution([one, one, one],[[one,0,one],[0,one,0],[one,one,0],[0,0,0]])
 print(x) # ([one, 0, one], [0, one, 0])
@@ -87,4 +88,18 @@ def get_ave(L): return np.dot(L, [1/len(L)]*len(L))
 
 # Quiz 2.9.4
 def list_dot(u,v): return sum([x*y for x,y in zip(u,v)])
+
+# Question 2.9.18
+I donot know so far.
+
+# Computational Problem 2.9.19
+# Computing all solutions to a linear system over GF(2).
+I donot know how to get this.
+
+# Question 2.9.20
+I donnot know so far.
+
+# Exercise 2.11.3
+x1 = 17.8; x2 = 4.4; x3 = -1.2
+
 
