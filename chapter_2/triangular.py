@@ -1,9 +1,11 @@
 # Copyright 2013 Philip N. Klein
+import numpy as np
 from vec import Vec
 from vecutil import zero_vec
 
+
 def triangular_solve_n(rowlist, b):
-    '''
+    """
     Solves an upper-triangular linear system.
     rowlist is a nonempty list of Vecs.  Let n = len(rowlist).
     The domain D of all these Vecs is {0,1, ..., n-1}.
@@ -19,17 +21,18 @@ def triangular_solve_n(rowlist, b):
 
     The procedure returns the Vec x that is the unique solution
     to the linear system.
-    '''
+    """
     D = rowlist[0].D
     n = len(D)
     assert D == set(range(n))
     x = zero_vec(D)
     for j in reversed(range(n)):
-        x[j] = (b[j] - rowlist[j] * x)/rowlist[j][j]
+        x[j] = (b[j] - rowlist[j] * x) / rowlist[j][j]
     return x
 
+
 def triangular_solve(rowlist, label_list, b):
-    '''
+    """
     Solves an upper-triangular linear system.
     rowlist is a nonempty list of Vecs.  Let n = len(rowlist).
     b is an n-element list or a Vec over domain {0,1, ..., n-1}.
@@ -50,11 +53,11 @@ def triangular_solve(rowlist, label_list, b):
 
     The procedure returns the Vec x that is the unique solution
     to the linear system.
-    '''
+    """
     D = rowlist[0].D
     x = zero_vec(D)
     for j in reversed(range(len(D))):
         c = label_list[j]
         row = rowlist[j]
-        x[c] = (b[j] - x*row)/row[c]
+        x[c] = (b[j] - x * row) / row[c]
     return x
