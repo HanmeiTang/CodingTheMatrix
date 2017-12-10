@@ -44,10 +44,10 @@ summation = sum(sum(LofL, [])) # 16.1
 
 # Task 0.5.13: Find out what happens if the length of the left-hand side list does not match the length of the right-hand side list.
 [x,y,z] = [1,2,3,4]
-ValueError: too many values to unpack (expected 3)
+# ValueError: too many values to unpack (expected 3)
 
 [x,y,z] = [1,2]
-ValueError: not enough values to unpack (expected 3, got 2)
+# ValueError: not enough values to unpack (expected 3, got 2)
 
 # Task 0.5.14: Suppose S is a set of integers, e.g. {−4, −2, 1, 2, 5, 0}. Write a triple comprehension whose value is a list of all three-element tuples (i, j, k) such that i, j, k are elements of S whose sum is zero.
 tri_tuples = {(x,y,z) for x in S for y in S for z in S if x+y+z==0}
@@ -56,7 +56,7 @@ tri_tuples = {(x,y,z) for x in S for y in S for z in S if x+y+z==0}
 tri_tuples = {(x,y,z) for x in S for y in S for z in S if x+y+z==0 and (x,y,z)!=(0,0,0)}
 
 # Task 0.5.16: Further modify the expression so that its value is not the list of all such tuples but is the first such tuple.
-_tuples = {(x,y,z) for x in S for y in S for z in S if x+y+z==0 an    d (x,y,z)!=(0,0,0)}[0]
+_tuples = {(x,y,z) for x in S for y in S for z in S if x+y+z==0 and (x,y,z)!=(0,0,0)}[0]
 
 # Task 0.5.17: Find an example of a list L such that len(L) and len(list(set(L))) are different.
 L = [1,1,1]
@@ -105,7 +105,7 @@ listdict2dict = {names[k]:v for (k,v) in id2salary.items() }
 # Task 0.5.27: Try entering the definition of twice(z). After you enter the definition, you will see the ellipsis. Just press enter. Next, try invoking the procedure on some actual arguments. Just for fun, try strings or lists. Finally, verify that the variable z is now not bound to any value by asking Python to evaluate the expression consisting of z.
 def twice(z): return 2*z
 
-# Task 0.5.28: Define a one-line procedure nextInts(L) specified as follows: 
+# Task 0.5.28: Define a one-line procedure nextInts(L) specified as follows:
 # • input: list L of integers 
 # • output: list of integers whose i th element is one more than the i th element of L 
 # • example: input [1, 5, 7], output [2, 6, 8].
@@ -117,20 +117,20 @@ def nextInts(L): return [x+1 for x in L]
 # • example: input [1, 2, 3], output [1, 8, 27].
 def cubes(L): return [x**3 for x in L]
 
-# Task 0.5.30: Define a one-line procedure dict2list(dct,keylist) with this spec: 
+# Task 0.5.30: Define a one-line procedure dict2list(dct,keylist) with this spec:
 # • input: dictionary dct, list keylist consisting of the keys of dct 
 # • output: list L such that L[i] = dct[keylist[i]] for i = 0, 1, 2,..., len(keylist) − 1 
 # • example: input dct={'a':'A', 'b':'B', 'c':'C'} and keylist=['b','c','a'], output ['B', 'C', 'A']
 def dict2list(dct,keylist): return {dct[k] for k in keylist}
 
-# Task 0.5.31: Define a one-line procedure list2dict(L, keylist) specified as follows: 
+# Task 0.5.31: Define a one-line procedure list2dict(L, keylist) specified as follows:
 # • input: list L, list keylist of immutable items 
 # • output: dictionary that maps keylist[i] to L[i] for i = 0, 1, 2,..., len(L) − 1 
 # • example: input L=[’A’,’B’,’C’] and keylist=[’a’,’b’,’c’], output {'a':'A', 'b':'B', 'c':'C'} 
 # Hint: Use a comprehension that iterates over a zip or a range.
 def list2dict(L, keylist): return {k:v for k,v in zip(keylist,L)}
 
-# Task 0.5.32: Write a procedure all 3 digit numbers(base, digits) with the following spec: 
+# Task 0.5.32: Write a procedure all 3 digit numbers(base, digits) with the following spec:
 # • input: a positive integer base and the set digits which should be {0, 1, 2,..., base−1}. 
 # • output: the set of all three-digit numbers where the base is base 
 # For example, 

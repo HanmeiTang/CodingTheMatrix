@@ -71,7 +71,7 @@ A good place to start is the :class:`Reader` and :class:`Writer` classes.
 
 Requires Python 2.3.  Limited support is available for Python 2.2, but
 not everything works.  Best with Python 2.4 and higher.  Installation is
-trivial, but see the ``README.txt`` file (with the source distribution)
+trivial, but see the ``README.md.txt`` file (with the source distribution)
 for details.
 
 This file can also be used as a command-line utility to convert
