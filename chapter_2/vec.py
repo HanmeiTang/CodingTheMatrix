@@ -1,5 +1,6 @@
 # Copyright 2013 Philip N. Klein
 
+
 def getitem(v, k):
     """
     Return the value of entry k in v.
@@ -12,7 +13,8 @@ def getitem(v, k):
     0
     """
     assert k in v.D
-    pass
+
+    return v.f[k]
 
 
 def setitem(v, k, val):
@@ -33,12 +35,14 @@ def setitem(v, k, val):
     0
     """
     assert k in v.D
-    pass
+
+    v.f.update({k: val})
+    return v
 
 
 def equal(u, v):
     """
-    Return true iff u is equal to v.
+    Return true if u is equal to v.
     Because of sparse representation, it is not enough to compare dictionaries
 
     Consider using brackets notation u[...] and v[...] in your procedure
@@ -70,7 +74,9 @@ def equal(u, v):
     False
     """
     assert u.D == v.D
-    pass
+    is_equal = u.f == v.f
+
+    return is_equal
 
 
 def add(u, v):
@@ -254,9 +260,10 @@ class Vec:
         """pretty-printing"""
         D_list = sorted(v.D, key=repr)
         numdec = 3
-        wd = dict([(k, (1 + max(len(str(k)), len('{0:.{1}G}'.format(v[k], numdec)))))
-                   if isinstance(v[k], int) or isinstance(v[k], float)
-                   else (k, (1 + max(len(str(k)), len(str(v[k]))))) for k in D_list])
+        wd = dict(
+            [(k, (1 + max(len(str(k)), len('{0:.{1}G}'.format(v[k], numdec)))))
+             if isinstance(v[k], int) or isinstance(v[k], float)
+             else (k, (1 + max(len(str(k)), len(str(v[k]))))) for k in D_list])
         s1 = ''.join(['{0:>{1}}'.format(str(k), wd[k]) for k in D_list])
         s2 = ''.join(['{0:>{1}.{2}G}'.format(v[k], wd[k], numdec)
                       if isinstance(v[k], int) or isinstance(v[k], float)
