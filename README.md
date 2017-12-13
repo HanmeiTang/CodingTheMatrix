@@ -4,8 +4,8 @@ Welcome to the repo for *Coding The Matrix: Linear Algebra Through Computer Scie
 
 ## Resources
 
-[Coding The Matrix](http://codingthematrix.com/)
+[Coding The Matrix](http://codingthematrix.com/).
 
-[CS053: The Matrix in Computer Science](http://cs.brown.edu/courses/cs053/current/index.htm)
+[CS053: The Matrix in Computer Science](http://cs.brown.edu/courses/cs053/current/index.htm).
 
-[Coding the Matrix Resources](http://resources.codingthematrix.com/)
+[Coding the Matrix Resources](http://resources.codingthematrix.com/).
